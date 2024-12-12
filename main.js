@@ -26,7 +26,7 @@ map.set("liabilitydebitcurrent_accounts_receivable",0)
 data["data"].forEach((account) =>{
     map.set(account["account_category"], map.get(account["account_category"])+account["total_value"])
     map.set(account["account_type"]+account["value_type"],map.get(account["account_type"]+account["value_type"]) + account["total_value"] )
-    map.set(account["account_category"]+account["value_type"]+account["account_type"],map.get(account["account_category"]+account["value_type"] +map.get("account_type")) + account["total_value"] )
+    map.set(account["account_category"]+account["value_type"]+account["account_type"],map.get(account["account_category"]+account["value_type"] +account["account_type"] ) + account["total_value"] )
 })
 
 // GPM = Gross Profit Margin
