@@ -1,5 +1,5 @@
 ## OverView
-The repo contained an script to calculate metrics: Revenue, Expenses, Gross Profit Margins, Net Profit Margins, Working Capital Ratio. The main javascript will be runned from the external file "data.json". 
+The repo contained an script to calculate metrics: Revenue, Expenses, Gross Profit Margins, Net Profit Margins, Working Capital Ratio. The main javascript will be runned from the external file "data.json". Run command "npm i" to install dependencies
 
 ## Calculations
 
