@@ -31,11 +31,11 @@ data["data"].forEach((account) =>{
 
 // GPM = Gross Profit Margin
 let GPM = map.get("salesdebit") 
-GPM = GPM/map.get("revenue")
+GPM = Math.floor((GPM/map.get("revenue"))*100)
 
 // NPM = Net Profit Margin 
 let NPM = map.get("revenue") - map.get("expense")
-NPM = NPM/map.get("revenue")
+NPM = Math.floor((NPM/map.get("revenue"))*100)
 
 //WCR = Working Capital Ratio
 let assetsDebit = map.get("assetsdebitcurrent") +map.get("assetsdebitbank") + map.get("assetsdebitcurrent_accounts_receivable")
@@ -44,10 +44,22 @@ let liabilityDebit = map.get("liabilitydebitcurrent") +map.get("liabilitydebitba
 let liabilityCredit = map.get("liabilitycreditcurrent") +map.get("liabilitycreditbank") + map.get("liabilitycreditcurrent_accounts_receivable")
 let assets = assetsDebit - assetsCredit
 let liability  = liabilityDebit - liabilityCredit
-let WCR = assets/liability
+let WCR = Math.floor((assets/liability) *100)
 
-console.log("Revenue: $" + map.get("revenue"))
-console.log("Expenses: $" + map.get("expense"))
-console.log("Gross Profit Margin: "  + GPM )
-console.log("Net Profit Margin: " + NPM)
-console.log("Working Captial Ratio: " + WCR)
+function commaify(a){
+    let temp = a.toString()
+    for(let i = temp.length-1;i > 0;i--){
+        if((temp.length-1-i)%3==0){
+            temp = temp.slice(0,i) + ','  +temp.slice(i,temp.length-1)
+        }
+    }
+    return temp
+}
+
+
+
+console.log("Revenue: $" + commaify(Math.floor(map.get("revenue"))))
+console.log("Expenses: $" + commaify(Math.floor(map.get("expense"))))
+console.log("Gross Profit Margin: "  + GPM +"%")
+console.log("Net Profit Margin: " + NPM+"%")
+console.log("Working Captial Ratio: " + WCR+"%")
